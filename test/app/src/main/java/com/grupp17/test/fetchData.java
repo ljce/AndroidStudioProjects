@@ -22,7 +22,7 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            URL url = new URL("https://api.myjson.com/bins/ktxhk");
+            URL url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.974560/lat/57.708870/data.json");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -32,7 +32,7 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
                 data = data + line;
             }
 
-            JSONArray JA = new JSONArray(data);
+            /*JSONArray JA = new JSONArray(data);
             for(int i =0 ;i < JA.length(); i++){
                 JSONObject JO = (JSONObject) JA.get(i);
                 singleParsed =  "Name:" + JO.get("name") + "\n"+
@@ -43,15 +43,15 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
                 dataParsed = dataParsed + singleParsed +"\n" ;
 
 
-            }
+            }*/
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (JSONException e) {
+        } /*catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
         return null;
     }
@@ -60,7 +60,7 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        MainActivity.data.setText(this.dataParsed);
+        MainActivity.data.setText(this.data);
 
     }
 }
