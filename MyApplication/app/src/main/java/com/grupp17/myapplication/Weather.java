@@ -1,6 +1,6 @@
 package com.grupp17.myapplication;
 
-public class WeatherDesc {
+public class Weather {
 
     public static String[] getWeatherDesc() {
         return weatherDesc;

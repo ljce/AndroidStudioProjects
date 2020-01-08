@@ -13,14 +13,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static com.grupp17.myapplication.WeatherDesc.getWeatherDesc;
+import static com.grupp17.myapplication.Weather.getWeatherDesc;
 
 public class FetchData extends AsyncTask<Void, Void, Void> {
     String data = "";
+    String timeAndDateString;
     String timeString;
     String tempString;
     String weatherDescription;
-    String forecast;
+    String forecast = "";
     String stad = "g";
 
     URL url;
@@ -55,6 +56,7 @@ public class FetchData extends AsyncTask<Void, Void, Void> {
             correctDate = correctDate.substring(0, 10);
             System.out.println(correctDate);
 
+
             String[] weatherDesc = getWeatherDesc();
             //int varv = 0;
             int i = 0;
@@ -63,20 +65,28 @@ public class FetchData extends AsyncTask<Void, Void, Void> {
                 weatherDescription = weatherDesc[Integer.parseInt(weatherNumber)];
                 //System.out.println(jsonObject.getJSONArray("timeSeries").getJSONObject(0).getJSONArray("parameters").getJSONObject(18).getJSONArray("values").getString(0));
 
+                Weather weather;
                 tempString = jsonObject.getJSONArray("timeSeries").getJSONObject(i).getJSONArray("parameters").getJSONObject(11).getJSONArray("values").getString(0);
 
-                timeString = jsonObject.getJSONArray("timeSeries").getJSONObject(i).get("validTime").toString();
+                timeAndDateString = jsonObject.getJSONArray("timeSeries").getJSONObject(i).get("validTime").toString();
 
-                forecast = forecast + " " + weatherDescription + " " + tempString + " " + timeString + "\n";
+                timeString = timeAndDateString.substring(11,16);
 
+                if (correctDate.equals(timeAndDateString.substring(0,10))) {
+                    forecast = forecast + " " + weatherDescription + " " + tempString + " " + timeString + "\n";
+
+                }
+                //System.out.println(correctDate.equals(timeString.substring(0,10)));
                 i++;
                 //varv++;
             }
-            while (correctDate.equals(timeString.substring(0,10)));
-
+            while (correctDate.equals(timeAndDateString.substring(0,10)));
+            //System.out.println(correctDate);
             System.out.println(forecast);
-            //System.out.println(varv);
 
+            //System.out.println(correctDate.equals(timeString.substring(0,10)));
+            // System.out.println(timeString.substring(0,10));
+            //System.out.println(varv);
             //System.out.println(jsonObject.getJSONArray("timeSeries").getJSONObject(0).get("validTime"));
 
 
