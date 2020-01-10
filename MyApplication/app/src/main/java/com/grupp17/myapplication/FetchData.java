@@ -2,7 +2,6 @@ package com.grupp17.myapplication;
 
 import android.os.AsyncTask;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -101,8 +100,8 @@ public class FetchData extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        MainActivity.arrayView.setText(this.forecast);
-        MainActivity.data.setText(this.timeString);
+        //MainActivity.arrayView.setText(this.forecast);
+        MainActivity.data.setText(this.forecast);
 
     }
 }

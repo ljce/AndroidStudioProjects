@@ -4,8 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangeLocation">
-<!--     android:background="@drawable/weather_icon">-->
+    tools:context=".ChangeLocationActivity"
+    android:background="@drawable/weather_icon">
+
+    <TextView
+        android:id="@+id/text_date_display2"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:textColor="#4D4D4D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextClock
+        android:id="@+id/textClock2"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:format12Hour="hh:mm a"
+        android:textAlignment="center"
+        android:textColor="#3F3F3F"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/setLocationButton"
@@ -19,9 +43,11 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="224dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="100dp"
+        android:layout_marginEnd="50dp"
         android:entries="@array/locations_array"
         android:foreground="@color/common_google_signin_btn_text_dark_disabled"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,15 +58,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
         android:text="Choose your city"
         android:textAlignment="textStart"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
