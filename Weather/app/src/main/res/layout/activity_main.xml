@@ -18,12 +18,12 @@
         android:scrollbars="vertical"
         android:textSize="24sp" />
 
- <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-     android:text="Click ME"
-     android:layout_marginBottom="10dp"
-   android:id="@+id/button"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click ME"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/button"/>
 
 
     <TextView

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="GetWeatherInfo">No data yet!</string>
+    <string name="Date"></string>
+    <string name="changeLocationButton">Change location</string>
+
+
+    <string-array name="locations_array">
+        <item>Gothenburg</item>
+        <item>Stockholm</item>
+        <item>Malmö</item>
+        <item>Jönköping</item>
+        <item>Umeå</item>
+        <item>Karlstad</item>
+        <item>Sundsvall</item>
+        <item>Kristianstad</item>
+    </string-array>
+
+    <string name="locationsarray">
+        <item>Gothenburg</item>
+        <item>Stockholm</item>
+        <item>Malmö</item>
+        <item>Jönköping</item>
+        <item>Umeå</item>
+        <item>Karlstad</item>
+        <item>Sundsvall</item>
+        <item>Kristianstad</item>
+    </string>
+</resources>
