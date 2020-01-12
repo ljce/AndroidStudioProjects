@@ -6,13 +6,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ChangeLocation extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -21,9 +19,6 @@ public class ChangeLocation extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_location);
-
-            //Intent intent = getIntent();
-            //String value = intent.getStringExtra(); //if it's a string you stored.
 
 
         final Spinner spinner = findViewById(R.id.spinner);
@@ -54,45 +49,11 @@ public class ChangeLocation extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-/*String a =spinner.getSelectedItem().toString();
-                System.out.println("bajs");
-                System.out.println(a);
-                myIntent.putExtra("locationValue", a);*/
-
-        /*// Initializing a String Array
-        String[] locations = findViewById(R.array.locations_array);
-
-        final Spinner spinner = findViewById(R.id.spinner);
-
-        final List<String> locationsList = new ArrayList<>(Arrays.asList(locations));
-
-        // Initializing an ArrayAdapter
-        final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this,android.R.layout.simple_spinner_item,locationsList);
-
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(spinnerArrayAdapter);
-
-        setLocationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Select the Spinner element at index position 2
-                // It will select third element/item from Spinner
-                spinner.setSelection(2);
-            }
-        });*/
-
-
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        String item = parent.getItemAtPosition(position).toString();
 
-        // Showing selected spinner item
-        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
     }
 

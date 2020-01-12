@@ -43,13 +43,11 @@ public class MainActivity extends AppCompatActivity {
         dateTimeDisplay.setText(date);
 
 
-        //om trycker på knappen så startar den Change Location activity
+        //om man trycker på knappen så startar den ChangeLocation
         final Button ChangeLocationButton = findViewById(R.id.changeLocationButton);
         ChangeLocationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //add your code here..
                 Intent myIntent = new Intent(MainActivity.this, ChangeLocation.class);
-                //myIntent.putExtra("key", null); //Optional parameters
                 myIntent.setAction("com.test.app.ChangeLocation");
                 startActivity(myIntent);
 
@@ -62,22 +60,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //ImageSetter imageset = new ImageSetter();
         Intent myIntent = getIntent();
         String locationValue = myIntent.getStringExtra("locationValue");
 
-        System.out.println(locationValue);
         if (locationValue != null) {
             new FetchData().execute(locationValue);
         } else {
-            new FetchData().execute("");
+            new FetchData().execute("Gothenburg");
         }
-        //imageset.execute();
+
 
 
 
     }
 }
-
-
-// https://api.myjson.com/bins/ktxhk   FETCH MEEEE

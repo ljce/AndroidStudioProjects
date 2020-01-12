@@ -1,8 +1,6 @@
 package com.grupp17.test;
 
-import android.app.Activity;
 import android.os.AsyncTask;
-import android.os.Bundle;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,13 +14,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static com.grupp17.test.WeatherDesc.getWeatherDesc;
-import static java.lang.String.format;
 
 public class FetchData extends AsyncTask<String,Void,Void> {
     String data ="";
-    String dataParsed = "";
-    String output = "";
-    String weatherValue;
     String weatherDescription;
     String temperature;
     String timeAndDateString;
@@ -30,28 +24,30 @@ public class FetchData extends AsyncTask<String,Void,Void> {
     URL url;
     String forecast = "";
 
-    String locationValue;
 
 
     @Override
     protected Void doInBackground(String... locationValue) {
 
         try {
-            
+
             System.out.println(locationValue[0]);
             if (locationValue[0].equals("Malmö")){
-
+                //Malmö
                 url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/13.00073/lat/55.60587/data.json");
+
             }
 
             else if(locationValue[0].equals("Stockholm")){
                 //Stockholm
                 url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/18.0649/lat/59.33258/data.json");
+
             }
 
-            else{
+            else if (locationValue[0].equals("Gothenburg")){
                 //Göteborg
                 url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.974560/lat/57.708870/data.json");
+
             }
 
 
@@ -111,14 +107,9 @@ public class FetchData extends AsyncTask<String,Void,Void> {
     }
 
 
-
-
-
-
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-
         MainActivity.data.setText(forecast);
 
 

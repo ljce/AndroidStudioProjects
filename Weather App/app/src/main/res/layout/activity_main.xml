@@ -55,6 +55,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_date_display" />
 
+
     <Button
         android:id="@+id/changeLocationButton"
         android:layout_width="132dp"
