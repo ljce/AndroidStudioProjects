@@ -92,7 +92,7 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
                 timeString = timeAndDateString.substring(11,16);
 
                 if (correctDate.equals(timeAndDateString.substring(0,10))) {
-                    forecast = forecast + " At "+ timeString + ", " + weatherDescription + " and " + temperature + " °C " + "\n";
+                    forecast = forecast +" At " + timeString + " :\n " + weatherDescription + " and " + temperature + "°C " + "\n\n";
 
                 }
                 //System.out.println(correctDate.equals(timeString.substring(0,10)));
