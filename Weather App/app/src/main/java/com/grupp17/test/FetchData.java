@@ -18,7 +18,7 @@ import java.net.URL;
 import static com.grupp17.test.WeatherDesc.getWeatherDesc;
 import static java.lang.String.format;
 
-public class FetchData extends AsyncTask<Void,Void,Void> {
+public class FetchData extends AsyncTask<String,Void,Void> {
     String data ="";
     String dataParsed = "";
     String output = "";
@@ -27,39 +27,35 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
     String temperature;
     String timeAndDateString;
     String timeString;
-
+    URL url;
     String forecast = "";
 
     String locationValue;
 
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected Void doInBackground(String... locationValue) {
 
         try {
+            
+            System.out.println(locationValue[0]);
+            if (locationValue[0].equals("Malmö")){
 
-           /* if (text.equals("Göteborg"){
-                //Göteborg
-                url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.974560/lat/57.708870/data.json");
+                url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/13.00073/lat/55.60587/data.json");
             }
 
-            else if(locationValue == "Stockholm"){
+            else if(locationValue[0].equals("Stockholm")){
                 //Stockholm
                 url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/18.0649/lat/59.33258/data.json");
             }
 
             else{
-                //Jokkmokk
-                url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/19.82292/lat/66.60696/data.json");
-            }*/
-            //en if-sats som sätter olika värden till url.
-            //if ( locationValue.isSetTo("Göteborg") {
-              //  url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11/lat/57/data.json");
-            //}
+                //Göteborg
+                url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.974560/lat/57.708870/data.json");
+            }
 
-            //hämtar URL från SMHI med koodinater satta till Göteborg.
 
-            URL url = new URL(" https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11/lat/57/data.json");
+            //URL url = new URL(" https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11/lat/57/data.json");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

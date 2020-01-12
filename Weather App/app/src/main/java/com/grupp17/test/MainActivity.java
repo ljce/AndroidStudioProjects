@@ -61,9 +61,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        FetchData process = new FetchData();
+
         //ImageSetter imageset = new ImageSetter();
-        process.execute();
+        Intent myIntent = getIntent();
+        String locationValue = myIntent.getStringExtra("locationValue");
+
+        System.out.println(locationValue);
+        if (locationValue != null) {
+            new FetchData().execute(locationValue);
+        } else {
+            new FetchData().execute("");
+        }
         //imageset.execute();
 
 

@@ -15,36 +15,49 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ChangeLocation extends AppCompatActivity {
-
-    String locationValue;
-
-    //nånting som har att göra med array-listorna
-    ListView listView;
-    Spinner spinner;
+public class ChangeLocation extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_location);
 
-            Intent intent = getIntent();
+            //Intent intent = getIntent();
             //String value = intent.getStringExtra(); //if it's a string you stored.
 
 
-        // välj från en rullista
-
+        final Spinner spinner = findViewById(R.id.spinner);
         final Button setLocationButton = findViewById(R.id.setLocationButton);
+
+        spinner.setOnItemSelectedListener(this);
+
+        List<String> categories = new ArrayList<>();
+        categories.add("Gothenburg");
+        categories.add("Stockholm");
+        categories.add("Malmö");
+
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+
+        spinner.setAdapter(dataAdapter);
+
+
+
         setLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //välj stad som default
+
                 Intent myIntent = new Intent(ChangeLocation.this, MainActivity.class);
-                //myIntent.putExtra("key", null); //Optional parameters
+                myIntent.putExtra("locationValue",String.valueOf(spinner.getSelectedItem()));
                 myIntent.setAction(".MainActivity");
                 startActivity(myIntent);
             }
         });
+
+/*String a =spinner.getSelectedItem().toString();
+                System.out.println("bajs");
+                System.out.println(a);
+                myIntent.putExtra("locationValue", a);*/
 
         /*// Initializing a String Array
         String[] locations = findViewById(R.array.locations_array);
@@ -73,6 +86,20 @@ public class ChangeLocation extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        String item = parent.getItemAtPosition(position).toString();
+
+        // Showing selected spinner item
+        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
+    }
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+
+    }
 
 
 
@@ -83,3 +110,5 @@ public class ChangeLocation extends AppCompatActivity {
     }
 
 }
+
+
