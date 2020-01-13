@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public static TextView data;
 
     private TextView dateTimeDisplay;
+    private TextView locationDisplay;
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String date;
@@ -62,11 +63,15 @@ public class MainActivity extends AppCompatActivity {
 
         Intent myIntent = getIntent();
         String locationValue = myIntent.getStringExtra("locationValue");
+        locationDisplay = findViewById(R.id.locationDisplay);
+        locationDisplay.setText(locationValue);
 
         if (locationValue != null) {
             new FetchData().execute(locationValue);
+            locationDisplay.setText(locationValue);
         } else {
             new FetchData().execute("Gothenburg");
+            locationDisplay.setText("Gothenburg");
         }
 
 

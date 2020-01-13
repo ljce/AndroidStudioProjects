@@ -16,22 +16,19 @@ import java.net.URL;
 import static com.grupp17.test.WeatherDesc.getWeatherDesc;
 
 public class FetchData extends AsyncTask<String,Void,Void> {
-    String data ="";
+    String forecast = "";
+    String data = "";
     String weatherDescription;
     String temperature;
     String timeAndDateString;
     String timeString;
     URL url;
-    String forecast = "";
-
 
 
     @Override
     protected Void doInBackground(String... locationValue) {
 
         try {
-
-            System.out.println(locationValue[0]);
             if (locationValue[0].equals("Malmö")){
                 //Malmö
                 url = new URL("https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/13.00073/lat/55.60587/data.json");
@@ -87,13 +84,10 @@ public class FetchData extends AsyncTask<String,Void,Void> {
                     forecast = forecast +" At " + timeString + " :\n " + weatherDescription + " and " + temperature + "°C " + "\n\n";
 
                 }
-                //System.out.println(correctDate.equals(timeString.substring(0,10)));
                 i++;
-                //varv++;
+
             }
             while (correctDate.equals(timeAndDateString.substring(0,10)));
-            //System.out.println(correctDate);
-            System.out.println(forecast);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -106,12 +100,10 @@ public class FetchData extends AsyncTask<String,Void,Void> {
         return null;
     }
 
-
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         MainActivity.data.setText(forecast);
 
-
-
-        }}
+    }
+}

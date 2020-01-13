@@ -55,6 +55,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_date_display" />
 
+    <TextView
+        android:id="@+id/locationDisplay"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:textAlignment="center"
+        android:textColor="#4D4D4D"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textClock"/>
+
+
 
     <Button
         android:id="@+id/changeLocationButton"

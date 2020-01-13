@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <resources>
         <string name="app_name">Weather App</string>
         <string name="GetWeatherInfo">No data yet!</string>
         <string name="Date"></string>
         <string name="changeLocationButton">Change location</string>
 
-    </resources>
 </resources>
