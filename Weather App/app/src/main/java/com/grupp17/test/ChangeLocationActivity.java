@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChangeLocation extends AppCompatActivity {
+public class ChangeLocationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +27,16 @@ public class ChangeLocation extends AppCompatActivity {
         categories.add("Stockholm");
         categories.add("Malmö");
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categories);
+
         spinner.setAdapter(dataAdapter);
+
 
         setLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent myIntent = new Intent(ChangeLocation.this, MainActivity.class);
+                Intent myIntent = new Intent(ChangeLocationActivity.this, MainActivity.class);
                 myIntent.putExtra("locationValue",String.valueOf(spinner.getSelectedItem()));
                 myIntent.setAction(".MainActivity");
                 startActivity(myIntent);

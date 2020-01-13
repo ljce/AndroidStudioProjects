@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         final Button ChangeLocationButton = findViewById(R.id.changeLocationButton);
         ChangeLocationButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, ChangeLocation.class);
+                Intent myIntent = new Intent(MainActivity.this, ChangeLocationActivity.class);
                 myIntent.setAction("com.test.app.ChangeLocation");
                 startActivity(myIntent);
 
